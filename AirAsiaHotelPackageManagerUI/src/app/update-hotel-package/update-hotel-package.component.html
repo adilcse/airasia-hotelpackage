@@ -1,0 +1,36 @@
+<h3>Update Hotel Package</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Hotel Name</label>
+      <input type="text" class="form-control" id="hotelName" required [(ngModel)]="hotelPackage.hotelName" name="hotelName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Description</label>
+      <input type="text" class="form-control" id="description" required [(ngModel)]="hotelPackage.description" name="description">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Price</label>
+      <input type="text" class="form-control" id="price" required [(ngModel)]="hotelPackage.price" name="price">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Days</label>
+      <input type="text" class="form-control" id="days" required [(ngModel)]="hotelPackage.days" name="days">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nights</label>
+      <input type="text" class="form-control" id="nights" required [(ngModel)]="hotelPackage.nights" name="nights">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Expirey Date #YYYYMMDD</label>
+      <input type="text" class="form-control" id="packageLastDate" required [(ngModel)]="hotelPackage.packageLastDate" name="packageLastDate" placeholder="yyyyMMdd">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

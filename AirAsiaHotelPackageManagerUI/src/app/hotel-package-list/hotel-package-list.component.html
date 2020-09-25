@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Hotel Package List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Hotel Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Days</th>
+          <th>Night</th>
+          <th>Expirey Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hotelPackage of hotelPackages | async">
+          <td>{{hotelPackage.hotelName}}</td>
+          <td>{{hotelPackage.description}}</td>
+          <td>{{hotelPackage.price}}</td>
+          <td>{{hotelPackage.days}}</td>
+          <td>{{hotelPackage.nights}}</td>
+          <td>{{moment(hotelPackage.packageLastDate, "YYYYMMDD").format("MMM Do YYYY")}}</td>
+          <td><button (click)="deleteHotelPackage(hotelPackage.id)" class="btn btn-danger">Delete</button>
+              <button (click)="updateHotelPackage(hotelPackage.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              <button (click)="hotelPackageDetails(hotelPackage.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

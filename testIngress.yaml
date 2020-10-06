@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: airasia
+  annotations:
+    # Target URI where the traffic must be redirected
+    # More info: https://github.com/kubernetes/ingress-nginx/blob/master/docs/examples/rewrite/README.md
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: spring.backend.com
+    http:
+      paths:
+      - backend:
+          serviceName: airasia-backend
+          servicePort: 80
+  - host: spring.frontend.com
+    http:
+      paths:
+      - backend:
+          serviceName: airasia-frontend
+          servicePort: 80

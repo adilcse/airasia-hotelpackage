@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: airasia-backend
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: airasia-backend
+  type: ClusterIP

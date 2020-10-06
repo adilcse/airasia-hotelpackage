@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airasia-frontend
+spec:
+  selector:
+    matchLabels:
+      app: airasia-frontend
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: airasia-frontend
+    spec:
+      containers:
+        - name: main
+          image: asia.gcr.io/k8s-session/airasia-frontend:0.0.1
+          imagePullPolicy: Always # if local, utilize Never
+          ports:
+            - containerPort: 80
